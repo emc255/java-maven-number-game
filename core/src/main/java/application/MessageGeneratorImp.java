@@ -1,15 +1,12 @@
 package application;
 
 import jakarta.annotation.PostConstruct;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class MessageGeneratorImp implements MessageGenerator {
-    // == constant ==
-    private final static Logger logger = LoggerFactory.getLogger(MessageGeneratorImp.class);
-
     // == fields ==
     private final Game game;
 
@@ -21,7 +18,7 @@ public class MessageGeneratorImp implements MessageGenerator {
     // == init ==
     @PostConstruct
     public void init() {
-        logger.info("game = {}", game);
+        log.info("game = {}", game);
     }
 
     // == public methods ==

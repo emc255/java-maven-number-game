@@ -2,8 +2,7 @@ package application.console;
 
 import application.Game;
 import application.MessageGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -11,9 +10,8 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
+@Slf4j
 public class ConsoleNumberGuess {
-    // == constant ==
-    private final static Logger logger = LoggerFactory.getLogger(ConsoleNumberGuess.class);
     // == fields ==
     private final Game game;
     private final MessageGenerator messageGenerator;
@@ -26,7 +24,7 @@ public class ConsoleNumberGuess {
 
     @EventListener(ContextRefreshedEvent.class)
     public void start() {
-        logger.info("Container ready to use");
+        log.info("Container ready to use");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
